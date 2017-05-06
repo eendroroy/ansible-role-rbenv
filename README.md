@@ -1,6 +1,8 @@
 rbenv
 =========
 
+[![Build Status](https://travis-ci.org/eendroroy/ansible-role-rbenv.svg?branch=master)](https://travis-ci.org/eendroroy/ansible-role-rbenv)
+
 Ansible role to install rbenv
 
 Role Variables
