@@ -16,5 +16,7 @@ galaxy_info:
   categories:
     - development
     - system
+    - rbenv
+    - ruby
 
 dependencies: []
