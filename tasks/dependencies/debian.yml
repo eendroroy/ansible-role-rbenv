@@ -1,5 +1,5 @@
 ---
-- name: Install dependencies for CentOS
+- name: Install dependencies for Ubuntu
   apt:
     name: '{{ item }}'
     state: installed
@@ -7,10 +7,15 @@
     update_cache: yes
     cache_valid_time: 3600
   with_items:
-      - make
-      - git
+      - build-essential
       - gcc
-      - libssl-dev
+      - git
+      - libcurl4-openssl-dev
+      - libffi-dev
       - libreadline-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - make
       - zlib1g-dev
   become: true

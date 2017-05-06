@@ -4,5 +4,8 @@
 .python-version
 tmp/*
 log/*
-!log/.gitkeep
-/rails-app
+/test.yml
+hosts
+ssh_key
+ansible.cfg
+Vagrantfile
