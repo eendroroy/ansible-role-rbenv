@@ -8,7 +8,7 @@ Ansible role to install rbenv
 Role Variables
 --------------
 
-Set `env: system` to install rbenv system-wide, skip for local installation.
+Set `env: system` to install rbenv system-wide, or `env: local` for local installation.
 
 Add plugins under `plugins` var.
 
