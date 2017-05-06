@@ -1,11 +1,11 @@
 ---
-- name: Check for {{ ruby_version }}
+- name: Check for {{ item.version }}
   stat:
-    path: '{{ rbenv_path }}/versions/{{ ruby_version }}'
+    path: '{{ rbenv.path }}/versions/{{ item.version }}'
   register: ruby
   ignore_errors: yes
 
-- name: Install ruby {{ ruby_version }}
-  raw: 'RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv install {{ ruby_version }}'
+- name: Install ruby {{ item.version }}
+  raw: 'RBENV_ROOT={{ rbenv.path }} {{ rbenv.path }}/bin/rbenv install {{ item.version }}'
   notify: rehash
   when: ruby.stat.exists == false

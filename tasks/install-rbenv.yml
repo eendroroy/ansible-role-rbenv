@@ -16,7 +16,7 @@
 
   - name: Clone rbenv
     git:
-      repo: '{{ rbenv.url }}'
+      repo: '{{ rbenv.repo }}'
       dest: '{{ rbenv.path }}'
       accept_hostkey: yes
 
