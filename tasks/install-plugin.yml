@@ -5,7 +5,7 @@
   ignore_errors: true
   register: plugin_dir
 
-- name: Clone ruby-build
+- name: Clone {{ item.name }}
   git:
     repo: '{{ item.repo }}'
     dest: '{{ rbenv.path }}/plugins/{{ item.name }}'
