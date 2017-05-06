@@ -5,13 +5,7 @@
   register: ruby
   ignore_errors: yes
 
-- block:
-  - name: Install ruby {{ ruby_version }}
-    raw: 'RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv install {{ ruby_version }}'
-    become: true
-
-  - name: Rehash ruby installations
-    raw: 'RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv rehash'
-    become: true
-
+- name: Install ruby {{ ruby_version }}
+  raw: 'RBENV_ROOT={{ rbenv_path }} {{ rbenv_path }}/bin/rbenv install {{ ruby_version }}'
+  notify: rehash
   when: ruby.stat.exists == false

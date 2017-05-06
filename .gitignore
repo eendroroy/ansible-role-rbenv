@@ -4,3 +4,8 @@
 .python-version
 tmp/*
 log/*
+/test.yml
+hosts
+ssh_key
+ansible.cfg
+Vagrantfile
