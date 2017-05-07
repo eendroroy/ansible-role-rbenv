@@ -1,13 +1,14 @@
 ---
-env: system
+rbenv_env: system
+
 rbenv:
   repo: https://github.com/rbenv/rbenv.git
-  path: "{{ '/usr/local/rbenv' if env == 'system' else '~/.rbenv' }}"
+  path: "{{ '/usr/local/rbenv' if rbenv_env == 'system' else '~/.rbenv' }}"
 
-plugins:
-  - { name: rbenv-default-gems, repo: 'https://github.com/rbenv/ruby-build.git' }
-  - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
-  - { name: rbenv-vars, repo: 'https://github.com/rbenv/rbenv-vars.git' }
+  plugins:
+    - { name: rbenv-default-gems, repo: 'https://github.com/rbenv/ruby-build.git' }
+    - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
+    - { name: rbenv-vars, repo: 'https://github.com/rbenv/rbenv-vars.git' }
 
 rubies:
   - version: 2.2.0

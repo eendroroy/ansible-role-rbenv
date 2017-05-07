@@ -8,18 +8,20 @@ Ansible role to install rbenv
 Role Variables
 --------------
 
-Set `env: system` to install rbenv system-wide, or `env: local` for local installation.
+Set `rbenv_env: system` to install rbenv system-wide, or `rbenv_env: local` for local installation.
 
-Add plugins under `plugins` var.
+Add plugins under `rbenv.plugins` var.
 
 Define ruby versions to install under `rubies` var.
 
 Example:
 
 ```yml
-env: system
-plugins:
-  - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
+rbenv_env: system
+
+rbenv:
+  plugins:
+    - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
 
 rubies:
   - version: 2.4.0
@@ -41,7 +43,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: eendroroy.rbenv }
+         - { role: eendroroy.rbenv, rbenv_env: system }
 
 License
 -------

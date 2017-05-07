@@ -10,7 +10,7 @@
 - name: Install plugins
   include: install-plugin.yml
   with_items:
-    - '{{ plugins }}'
+    - '{{ rbenv.plugins }}'
 
 - name: Install rubies
   include: install-ruby.yml
