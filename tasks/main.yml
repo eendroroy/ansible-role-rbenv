@@ -1,8 +1,8 @@
 ---
-- include: dependencies/debian.yml
+- include: dependencies/apt.yml
   when: ansible_os_family == 'Debian'
 
-- include: dependencies/centos.yml
+- include: dependencies/yum.yml
   when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon"
 
 - include: install-rbenv.yml
