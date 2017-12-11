@@ -5,13 +5,17 @@
   ignore_errors: true
   register: rbenv_bin_dir
 
+- name: Determine current user
+  shell: whoami | awk '{printf("%s", $1)}'
+  register: host_user
+
 - block:
   - name: Create base directory
     file:
       path: '{{ rbenv.path }}'
       state: directory
-      group: '{{ remote_user }}'
-      owner: '{{ remote_user }}'
+      group: '{{ remote_user | default(host_user.stdout) }}'
+      owner: '{{ remote_user | default(host_user.stdout) }}'
     become: true
 
   - name: Clone rbenv
