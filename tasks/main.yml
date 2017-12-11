@@ -1,22 +1,18 @@
 ---
-- include: dependencies/apt.yml
+- include_tasks: dependencies/apt.yml
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- include: dependencies/yum.yml
+- include_tasks: dependencies/yum.yml
   when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- include: install-rbenv.yml
+- include_tasks: install-rbenv.yml
 
 - name: Install plugins
-  include: install-plugin.yml
+  include_tasks: install-plugin.yml
   with_items:
     - '{{ rbenv.plugins }}'
 
 - name: Install rubies
-  include: install-ruby.yml
+  include_tasks: install-ruby.yml
   with_items:
     - '{{ rubies }}'
-
-#- name: Make sure bundler is installed
-#  raw: 'RBENV_ROOT={{ rbenv_path }} RBENV_VERSION={{ ruby_version }} {{ rbenv_path }}/bin/rbenv exec gem install bundler'
-#  become: true
