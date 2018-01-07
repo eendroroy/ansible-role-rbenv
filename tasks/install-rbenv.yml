@@ -3,19 +3,15 @@
   stat:
     path: '{{ rbenv.path }}/bin/rbenv'
   ignore_errors: true
-  register: rbenv_bin_dir
-
-- name: Determine current user
-  shell: whoami | awk '{printf("%s", $1)}'
-  register: host_user
+  register: rbenv_bin
 
 - block:
   - name: Create base directory
     file:
       path: '{{ rbenv.path }}'
       state: directory
-      group: '{{ remote_user | default(host_user.stdout) }}'
-      owner: '{{ remote_user | default(host_user.stdout) }}'
+      group: '{{ remote_user | default(ansible_user_id) }}'
+      owner: '{{ remote_user | default(ansible_user_id) }}'
     become: true
 
   - name: Clone rbenv
@@ -35,4 +31,4 @@
       group: root
       mode: 0775
     become: true
-  when: rbenv_bin_dir.stat.exists == false
+  when: rbenv_bin.stat.exists == false
