@@ -7,7 +7,7 @@ rbenv:
 
   plugins:
     - { name: rbenv-ccache, repo: 'https://github.com/yyuu/rbenv-ccache.git' }
-    - { name: rbenv-default-gems, repo: 'https://github.com/rbenv/ruby-build.git' }
+    - { name: rbenv-default-gems, repo: 'https://github.com/rbenv/rbenv-default-gems.git' }
     - { name: rbenv-vars, repo: 'https://github.com/rbenv/rbenv-vars.git' }
 
 rubies:
