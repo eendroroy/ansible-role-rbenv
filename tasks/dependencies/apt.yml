@@ -19,15 +19,3 @@
       - make
       - zlib1g-dev
   become: true
-
-- name: Install optional dependencies for {{ ansible_os_family }}
-  apt:
-    name: '{{ item }}'
-    state: installed
-    force: yes
-    update_cache: yes
-    cache_valid_time: 3600
-  with_items:
-      - ccache
-  become: true
-  ignore_errors: yes
