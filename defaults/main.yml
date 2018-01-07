@@ -6,9 +6,9 @@ rbenv:
   path: "{{ '/usr/local/rbenv' if rbenv_env == 'system' else '~/.rbenv' }}"
 
   plugins:
+    - { name: rbenv-ccache, repo: 'https://github.com/yyuu/rbenv-ccache.git' }
     - { name: rbenv-default-gems, repo: 'https://github.com/rbenv/ruby-build.git' }
-    - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
     - { name: rbenv-vars, repo: 'https://github.com/rbenv/rbenv-vars.git' }
 
 rubies:
-  - version: 2.4.2
+  - version: 2.5.0
