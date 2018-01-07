@@ -1,0 +1,12 @@
+---
+- debug:
+    var: "{{ item }}"
+  with_items:
+    - rbenv.repo
+    - rbenv.path
+    - rbenv.plugins
+    - rubies.version
+    - ansible_os_family
+    - ansible_distribution
+    - ansible_distribution_release
+    - ansible_user_id

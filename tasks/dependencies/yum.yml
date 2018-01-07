@@ -1,5 +1,5 @@
 ---
-- name: Install dependencies for Centos
+- name: Install dependencies for {{ ansible_os_family }}
   yum:
     name: '{{ item }}'
     state: installed
@@ -23,5 +23,14 @@
       - bison
       - curl
       - sqlite-devel
+  become: true
+
+- name: Install optional dependencies for {{ ansible_os_family }}
+  yum:
+    name: '{{ item }}'
+    state: installed
+    update_cache: yes
+  with_items:
       - ccache
   become: true
+  ignore_errors: yes

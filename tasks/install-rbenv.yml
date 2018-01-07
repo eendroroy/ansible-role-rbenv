@@ -1,12 +1,12 @@
 ---
-- name: Check for previous installation of rbenv
+- name: Check for previous installation of rbenv at {{ rbenv.path }}
   stat:
     path: '{{ rbenv.path }}/bin/rbenv'
   ignore_errors: true
   register: rbenv_bin
 
 - block:
-  - name: Create base directory
+  - name: Create base directory at {{ rbenv.path }}
     file:
       path: '{{ rbenv.path }}'
       state: directory
@@ -14,7 +14,7 @@
       owner: '{{ remote_user | default(ansible_user_id) }}'
     become: true
 
-  - name: Clone rbenv
+  - name: Clone rbenv at {{ rbenv.path }}
     git:
       repo: '{{ rbenv.repo }}'
       dest: '{{ rbenv.path }}'

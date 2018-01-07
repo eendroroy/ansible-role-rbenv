@@ -1,11 +1,15 @@
 ---
+- name: Show information
+  include_tasks: info.yml
+
 - include_tasks: dependencies/apt.yml
   when: ansible_os_family == 'Debian'
 
 - include_tasks: dependencies/yum.yml
   when: ansible_os_family == 'RedHat'
 
-- include_tasks: install-rbenv.yml
+- name: Install rbenv
+  include_tasks: install-rbenv.yml
 
 - name: Install default plugins
   include_tasks: install-plugin.yml
