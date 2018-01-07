@@ -23,4 +23,5 @@
       - bison
       - curl
       - sqlite-devel
+      - ccache
   become: true

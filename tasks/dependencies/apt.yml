@@ -18,4 +18,5 @@
       - libxslt1-dev
       - make
       - zlib1g-dev
+      - ccache
   become: true
