@@ -1,5 +1,4 @@
-rbenv
-=========
+# rbenv
 
 [![Build Status](https://travis-ci.org/eendroroy/ansible-role-rbenv.svg?branch=master)](https://travis-ci.org/eendroroy/ansible-role-rbenv)
 
@@ -13,8 +12,7 @@ rbenv
 
 Ansible role to install rbenv
 
-Role Variables
---------------
+## Role Variables
 
 Set `rbenv_env: system` to install rbenv system-wide, or `rbenv_env: local` for local installation.
 
@@ -29,21 +27,23 @@ rbenv_env: system
 
 rbenv:
   plugins:
-    - { name: ruby-build, repo: 'https://github.com/rbenv/ruby-build.git' }
+    - { name: ruby-default-gems, repo: 'https://github.com/rbenv/ruby-default-gems.git' }
 
 rubies:
-  - version: 2.4.2
+  - version: 2.5.0
 ```
 
-Supported OS
-------------
+## Supported OS
 
 - Ubuntu
-    - trusty (14.04)
-    - xenial (16.04) - xenial requires python2 to be installed for ansible support
+    - trusty  (14.04)
+    - xenial  (16.04) - xenial requires python2 to be installed for ansible support
+- CentOS
+    - 7
+- RHEL
+    - 7
 
-Example Playbook
-----------------
+## Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
@@ -51,12 +51,31 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: eendroroy.rbenv, rbenv_env: system }
 
-License
--------
 
-MIT
+## Testing locally
 
-Author Information
-------------------
+First run the vagrant machines:
 
-**indrajit** - *owner* - [eendroroy](https://github.com/eendroroy)
+```bash
+vagrant up
+```
+
+Then execute the test runner script:
+
+```bash
+./run_vagrant_test.sh
+```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at [ansible-role-rbenv](https://github.com/eendroroy/ansible-role-rbenv) repository.
+This project is intended to be a safe, welcoming space for collaboration,
+and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Authors
+
+* **Indrajit Roy** - *Owner* - [eendroroy](https://github.com/eendroroy)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
