@@ -1,5 +1,5 @@
 ---
-- name: Install dependencies for {{ ansible_os_family }}
+- name: Install dependencies for {{ ansible_distribution }}
   apt:
     name: '{{ item }}'
     state: installed
