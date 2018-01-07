@@ -1,0 +1,21 @@
+---
+- name: Initial setup
+  hosts: vagrant
+  gather_facts: no
+
+  roles:
+    - { role: ../ansible-role-rbenv/vagrant/initial }
+
+- name: Role test [rbenv] < rbenv_env = local >
+  hosts: vagrant
+  vars:
+    - rbenv_env: local
+  roles:
+    - { role: ../ansible-role-rbenv }
+
+- name: Role test [rbenv] < rbenv_env = system >
+  hosts: vagrant
+  vars:
+    - rbenv_env: system
+  roles:
+    - { role: ../ansible-role-rbenv }
