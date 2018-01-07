@@ -1,11 +1,16 @@
 ---
 - include_tasks: dependencies/apt.yml
-  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  when: ansible_os_family == 'Debian'
 
 - include_tasks: dependencies/yum.yml
-  when: ansible_distribution == "CentOS" or ansible_distribution == "Amazon" or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_os_family == 'RedHat'
 
 - include_tasks: install-rbenv.yml
+
+- name: Install default plugins
+  include_tasks: install-plugin.yml
+  with_items:
+    - '{{ default_plugins }}'
 
 - name: Install plugins
   include_tasks: install-plugin.yml
