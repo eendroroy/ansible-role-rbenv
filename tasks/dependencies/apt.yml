@@ -1,12 +1,7 @@
 ---
 - name: Install dependencies for {{ ansible_distribution }}
   apt:
-    name: '{{ item }}'
-    state: installed
-    force: yes
-    update_cache: yes
-    cache_valid_time: 3600
-  with_items:
+    pkg:
       - build-essential
       - gcc
       - git
@@ -18,4 +13,9 @@
       - libxslt1-dev
       - make
       - zlib1g-dev
+    state: present
+    force: yes
+    update_cache: yes
+    cache_valid_time: 3600
+
   become: true
